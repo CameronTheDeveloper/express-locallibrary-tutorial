@@ -14,10 +14,10 @@ const BookInstanceSchema = new Schema({
   due_back: { type: Date, default: Date.now },
 });
 
-// Virtual for bookinstance's URL
+// Virtual for bookInstance's URL
 BookInstanceSchema.virtual("url").get(function () {
   // We don't use an arrow function as we'll need the this object
-  return `/catalog/bookinstance/${this._id}`;
+  return `/catalog/bookInstance/${this._id}`;
 });
 
 // Export model
