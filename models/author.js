@@ -32,5 +32,9 @@ AuthorSchema.virtual("formatted_dob").get(function () {
   return DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
 });
 
+AuthorSchema.virtual("formatted_dod").get(function () {
+  return DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED);
+});
+
 // Export model
 module.exports = mongoose.model("Author", AuthorSchema);
