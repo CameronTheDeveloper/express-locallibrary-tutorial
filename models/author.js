@@ -29,11 +29,15 @@ AuthorSchema.virtual("url").get(function () {
 });
 
 AuthorSchema.virtual("formatted_dob").get(function () {
-  return DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
+  return this.date_of_birth ?
+    DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
+    : 'Unknown';
 });
 
 AuthorSchema.virtual("formatted_dod").get(function () {
-  return DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED);
+  return this.date_of_death ?
+    DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+    : false;
 });
 
 // Export model
