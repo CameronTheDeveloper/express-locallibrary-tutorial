@@ -10,4 +10,4 @@ GenreSchema.virtual('url').get(function () {
     return `genre/${this._id}`;
 });
 
-module.exports = mongoose.model("genre", GenreSchema);
+module.exports = mongoose.model("Genre", GenreSchema);
