@@ -65,10 +65,10 @@ router.get("/authors", author_controller.author_list);
 /// GENRE ROUTES ///
 
 // GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
-router.get("/genre/create", genre_controller.genre_create_get);
+router.get("/create-genre", genre_controller.genre_create_get);
 
 //POST request for creating Genre.
-router.post("/genre/create", genre_controller.genre_create_post);
+router.post("/create-genre", genre_controller.genre_create_post);
 
 // GET request to delete Genre.
 router.get("/genre/:id/delete", genre_controller.genre_delete_get);
