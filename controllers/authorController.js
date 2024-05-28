@@ -1,6 +1,7 @@
 const Author = require("../models/author");
 const Book = require("../models/book");
 const asyncHandler = require("express-async-handler");
+const {body, validationResult} = require("express-validator");
 
 // Display list of all Authors.
 exports.author_list = asyncHandler(async (req, res, next) => {
@@ -35,7 +36,7 @@ exports.author_detail = asyncHandler(async (req, res, next) => {
 
 // Display Author create form on GET.
 exports.author_create_get = asyncHandler(async (req, res, next) => {
-    res.send("NOT IMPLEMENTED: Author create GET");
+    res.render("author_form", {title: "Create Author"});
 });
 
 // Handle Author create on POST.
