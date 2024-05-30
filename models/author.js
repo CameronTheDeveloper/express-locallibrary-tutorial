@@ -30,15 +30,16 @@ AuthorSchema.virtual("url").get(function () {
 
 AuthorSchema.virtual("formatted_dob").get(function () {
   return this.date_of_birth ?
-    DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
+    DateTime.fromJSDate(this.date_of_birth).toISODate()
     : 'Unknown';
 });
 
 AuthorSchema.virtual("formatted_dod").get(function () {
   return this.date_of_death ?
-    DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+    DateTime.fromJSDate(this.date_of_death).toISODate()
     : false;
 });
+
 
 // Export model
 module.exports = mongoose.model("Author", AuthorSchema);
