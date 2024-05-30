@@ -120,7 +120,7 @@ exports.bookInstance_delete_post = asyncHandler(async (req, res, next) => {
 // Display BookInstance update form on GET.
 exports.bookInstance_update_get = asyncHandler(async (req, res, next) => {
     const bookInstance = await BookInstance.findById(req.params.id).exec();
-
+    const allBooks = await Book.find({}, "title").sort({ title: 1 }).exec();
     if (bookInstance === null){
       const err = new Error("Book Instance not found");
       err.status = 404;
@@ -130,6 +130,7 @@ exports.bookInstance_update_get = asyncHandler(async (req, res, next) => {
     res.render("bookInstance_form", {
       title: "Update Book Copy: ",
       bookInstance: bookInstance,
+      book_list: allBooks
     });
 
 });
@@ -151,6 +152,7 @@ exports.bookInstance_update_post = [
 
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
+    const allBooks = await Book.find({}, "title").sort({ title: 1 }).exec();
 
     const bookInstance = new BookInstance({
       book: req.body.book,
@@ -163,6 +165,7 @@ exports.bookInstance_update_post = [
       res.render("bookInstance_form", {
         title: "Update Book Copy: ",
         bookInstance: bookInstance,
+        book_list: allBooks,
       });
       return;
     } else {
