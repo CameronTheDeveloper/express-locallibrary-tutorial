@@ -85,7 +85,16 @@ exports.genre_create_post = [
 
 // Display Genre delete form on GET.
 exports.genre_delete_get = asyncHandler(async (req, res, next) => {
-    res.send("NOT IMPLEMENTED: Genre delete GET");
+    const [genre, allBooksWithGenre] = await Promise.all([
+        Genre.findById(req.params.id).exec(),
+        Book.find({genre: req.params.id}).exec()
+    ]);
+
+    res.render("genre_delete", {
+        title: "Delete Genre: ",
+        genre: genre,
+        booksWithGenre: allBooksWithGenre,
+    })
 });
 
 // Handle Genre delete on POST.
