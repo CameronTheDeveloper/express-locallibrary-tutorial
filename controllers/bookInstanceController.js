@@ -130,6 +130,7 @@ exports.bookInstance_update_get = asyncHandler(async (req, res, next) => {
     res.render("bookInstance_form", {
       title: "Update Book Copy: ",
       bookInstance: bookInstance,
+      selected_book: bookInstance.book._id,
       book_list: allBooks
     });
 
@@ -165,6 +166,7 @@ exports.bookInstance_update_post = [
       res.render("bookInstance_form", {
         title: "Update Book Copy: ",
         bookInstance: bookInstance,
+        selected_book: bookInstance.book._id,
         book_list: allBooks,
       });
       return;
