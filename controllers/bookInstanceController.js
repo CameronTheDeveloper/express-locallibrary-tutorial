@@ -160,6 +160,7 @@ exports.bookInstance_update_post = [
       imprint: req.body.imprint,
       status: req.body.status,
       due_back: req.body.due_back,
+      _id: req.params.id,
     });
 
     if (!errors.isEmpty()){
@@ -168,6 +169,7 @@ exports.bookInstance_update_post = [
         bookInstance: bookInstance,
         selected_book: bookInstance.book._id,
         book_list: allBooks,
+        errors: errors.array(),
       });
       return;
     } else {
