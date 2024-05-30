@@ -184,7 +184,7 @@ exports.book_delete_post = asyncHandler(async (req, res, next) => {
     return;
   } else {
     await Book.findByIdAndDelete(req.body.bookid);
-    res.redirect("catalog/books");
+    res.redirect("/catalog/books");
   }
 });
 
