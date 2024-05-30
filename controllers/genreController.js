@@ -93,7 +93,7 @@ exports.genre_delete_get = asyncHandler(async (req, res, next) => {
     res.render("genre_delete", {
         title: "Delete Genre: ",
         genre: genre,
-        booksWithGenre: allBooksWithGenre,
+        genre_books: allBooksWithGenre,
     });
 });
 
