@@ -9,6 +9,9 @@ const usersRouter = require('./routes/users');
 const wikiRouter = require('./routes/wiki.js');
 const catalogRouter = require("./routes/catalog");
 
+const compression = require("compression");
+
+
 const app = express();
 
 // Set up mongoose connection
@@ -26,6 +29,8 @@ async function main() {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use(compression());
 
 app.use(logger('dev'));
 app.use(express.json());
