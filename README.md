@@ -2,4 +2,10 @@
 
 ## Powered by Express
 
-This project serves as my experimentation ground for gaining proficiency with the Express framework, performing CRUD operations with MongoDB Database, and enhancing my skills in backend development overall.
+## Application link
+
+[Local Library Application](https://florentine-neighborly-wool.glitch.me)
+
+## Overview
+
+This project is my experimental platform for mastering the Express framework, performing CRUD operations with a MongoDB database, and improving my backend development skills as part of my fullstack web development journey.
